@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#14243b">
+  <meta name="description" content="Context-first GRE vocabulary learning, synonym distinction, Sentence Equivalence and progress tracking.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>GRE Context Lab</title>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home"><span class="brand-mark">CL</span><span><b>Context Lab</b><small>GRE LEXICON</small></span></a>
+      <p class="side-label">STUDY SPACE</p>
+      <nav id="nav">
+        <button class="active" data-page="home">⌂ <span>总览</span></button>
+        <button data-page="learn">▤ <span>语境学习</span></button>
+        <button data-page="compare">⇄ <span>近义辨析</span></button>
+        <button data-page="se">▦ <span>SE 练习</span></button>
+        <button data-page="review">◷ <span>间隔复习</span></button>
+        <button data-page="progress">▥ <span>学习记录</span></button>
+      </nav>
+      <div class="side-foot"><div id="side-progress">0 / 0 个词已接触</div><div class="progress-track"><span id="side-bar"></span></div><small>学习记录保存在本地浏览器</small></div>
+    </aside>
+    <main>
+      <header class="topbar"><div><span class="eyebrow">YOUR PERSONAL VOCABULARY STUDIO</span><div id="status" class="status">正在加载词库…</div></div><div class="top-actions"><button class="button subtle" data-action="export-progress">导出同步记录 ↓</button><button class="button subtle" data-action="export-backup">完整备份 ↓</button></div></header>
+      <div id="view"><div class="loading">正在准备学习空间…</div></div>
+      <footer>GRE Context Lab · 原创学习练习，非 ETS 官方产品。词义与例句用于学习辅助。</footer>
+    </main>
+  </div>
+  <script src="app.js" defer></script>
+  <script>if('serviceWorker' in navigator && location.protocol.startsWith('http')) addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));</script>
+</body>
+</html>

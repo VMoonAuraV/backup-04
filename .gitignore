@@ -1,0 +1,5 @@
+# Browser exports should not be committed by accident.
+context-lab-backup-*.json
+context-lab-progress-*.json
+__pycache__/
+*.py[cod]
