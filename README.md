@@ -11,9 +11,13 @@
 - `tools/validate_pack.py` 检查词库/题库 JSON 的结构、ID 唯一性、词汇引用和答案索引；Pages 部署前会运行它。
 - GitHub Actions 会尝试将 `docs/` 发布到 GitHub Pages。
 
+## 首次启用网站发布
+
+在仓库的 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。GitHub Actions 的默认令牌没有权限替仓库首次开启 Pages，因此这一步需要仓库管理员手动设置一次。设置完成后，到 **Actions** 中重新运行最新的 “Deploy GRE Context Lab to GitHub Pages” 工作流。
+
 ## 运行网站
 
-直接访问 GitHub Pages（首次发布成功后，地址通常是 `https://vmoonaurav.github.io/backup-04/`）。本地开发可在仓库根目录运行：
+首次发布成功后，网站地址通常是 `https://vmoonaurav.github.io/backup-04/`。本地开发可在仓库根目录运行：
 
 ```bash
 python -m http.server 8000 --directory docs
