@@ -1,0 +1,131 @@
+{
+  "type": "context-lab-progress",
+  "version": 1,
+  "exportedAt": "2026-10-29T03:10:13.626Z",
+  "contentPack": {
+    "id": "gre-core-context-01",
+    "version": "1.0.0"
+  },
+  "state": {
+    "words": {
+      "laconic": {
+        "level": 2,
+        "seen": 4,
+        "correct": 3,
+        "wrong": 1,
+        "due": "2026-11-02",
+        "last": "2026-10-29"
+      },
+      "taciturn": {
+        "level": 2,
+        "seen": 4,
+        "correct": 3,
+        "wrong": 1,
+        "due": "2026-11-02",
+        "last": "2026-10-29"
+      },
+      "terse": {
+        "level": 0,
+        "seen": 1,
+        "correct": 0,
+        "wrong": 1,
+        "due": "2026-10-29",
+        "last": "2026-10-29"
+      },
+      "succinct": {
+        "level": 1,
+        "seen": 1,
+        "correct": 1,
+        "wrong": 0,
+        "due": "2026-10-31",
+        "last": "2026-10-29"
+      }
+    },
+    "log": [
+      {
+        "day": "2026-10-29",
+        "at": 1793238300730,
+        "mode": "context",
+        "wordId": "laconic",
+        "correct": true
+      },
+      {
+        "day": "2026-10-29",
+        "at": 1793238306409,
+        "mode": "context",
+        "wordId": "taciturn",
+        "correct": true
+      },
+      {
+        "day": "2026-10-29",
+        "at": 1793238320238,
+        "mode": "context",
+        "wordId": "terse",
+        "correct": false
+      },
+      {
+        "day": "2026-10-29",
+        "at": 1793240168099,
+        "mode": "se",
+        "wordId": "succinct",
+        "correct": true
+      },
+      {
+        "day": "2026-10-29",
+        "at": 1793240183503,
+        "mode": "compare",
+        "wordId": "taciturn",
+        "correct": false
+      },
+      {
+        "day": "2026-10-29",
+        "at": 1793240183503,
+        "mode": "compare",
+        "wordId": "laconic",
+        "correct": false
+      },
+      {
+        "day": "2026-10-29",
+        "at": 1793240207509,
+        "mode": "context",
+        "wordId": "laconic",
+        "correct": true
+      },
+      {
+        "day": "2026-10-29",
+        "at": 1793240213779,
+        "mode": "context",
+        "wordId": "taciturn",
+        "correct": true
+      },
+      {
+        "day": "2026-10-29",
+        "at": 1793243363593,
+        "mode": "context",
+        "wordId": "laconic",
+        "correct": true
+      },
+      {
+        "day": "2026-10-29",
+        "at": 1793243372495,
+        "mode": "context",
+        "wordId": "taciturn",
+        "correct": true
+      }
+    ],
+    "quiz": {
+      "s1": {
+        "seen": 1,
+        "correct": 1,
+        "last": "2026-10-29"
+      },
+      "d1": {
+        "seen": 1,
+        "correct": 0,
+        "last": "2026-10-29"
+      }
+    },
+    "created": 1793238279543,
+    "updatedAt": "2026-10-29T03:10:13.626Z"
+  }
+}
