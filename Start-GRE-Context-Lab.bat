@@ -68,7 +68,7 @@ echo.
 echo Starting GRE Context Lab...
 echo A browser tab will open automatically.
 echo Keep this window open while studying.
-echo Website: http://127.0.0.1:8765/
+echo Website: http://127.0.0.1:8766/
 echo Repository: %CD%
 echo Press Ctrl+C to stop the local server.
 echo.
