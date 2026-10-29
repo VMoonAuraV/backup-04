@@ -32,7 +32,7 @@ jobs:
       - name: Check Python desktop helper syntax
         run: python -m py_compile tools/desktop_app.py tools/desktop_sync.py tools/validate_pack.py
       - name: Check browser JavaScript syntax
-        run: node --check docs/app.js
+        run: node --check docs/app.js && node --check docs/local-example-provider.js
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
