@@ -57,6 +57,12 @@ if not exist "%~dp0.git" (
 )
 
 :run_app
+echo Checking for the latest GRE Context Lab update...
+git pull --ff-only
+if errorlevel 1 (
+  echo [WARN] Could not update from GitHub. Continuing with the local version.
+  echo.
+)
 if not exist "tools\desktop_app.py" (
   echo [ERROR] Cannot find tools\desktop_app.py in:
   echo %CD%
