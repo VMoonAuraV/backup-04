@@ -57,6 +57,18 @@ python -m http.server 8000 --directory docs
 
 **重要：** 本仓库目前是公开仓库，`progress/` 中的学习记录和 Git 历史都可被任何人查看。同步程序使用电脑本地 Git 凭据，不把 GitHub token 放进网页或仓库。不要在学习记录中放密码、访问令牌等秘密。
 
+## 多例句与本地模型接口
+
+每个词汇可继续使用旧的 `example` 字段，也可增加 `examples` 数组；网站会展示多个例句。结构与调用约定见 [本地例句提供器接口文档](docs/LOCAL_EXAMPLE_PROVIDER.md)。
+
+本地模型接入点已经预留，不包含在线生成服务：
+
+1. 在本地创建 `docs/local-example-provider.local.js`。
+2. 定义 `window.GREContextLabExampleProvider`，实现 `apiVersion: 1`、`isConfigured: true` 和异步方法 `generateExamples(request)`。
+3. 方法返回 `[{ text, kind, note, id? }]` 形式的候选例句。网页会去重并保存到浏览器本地，标记为“尚未审核”。
+4. 本地适配文件已加入 `.gitignore`，不会被提交到仓库，也不会随常规 Git 更新覆盖。它只在本地网站运行时加载。
+5. 候选例句包含在“完整备份”中，但不会通过“同步到 GitHub”自动上传。
+
 ## 更新词库与题库
 
 编辑 `docs/packs/starter.json`，保持 `words`、`comparisons` 和 `se` 三个数组的结构。ID 应稳定且唯一；不要把已有 ID 改成另一个词义。网站会在联网时获取新版本并合并本地内容。提交 `docs/` 下的变化后，GitHub Actions 会重新部署网站。
