@@ -15,15 +15,25 @@
 
 在仓库的 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。GitHub Actions 的默认令牌没有权限替仓库首次开启 Pages，因此这一步需要仓库管理员手动设置一次。设置完成后，到 **Actions** 中重新运行最新的 “Deploy GRE Context Lab to GitHub Pages” 工作流。
 
-## 运行网站
+## 一键启动（Windows，推荐）
 
-首次发布成功后，网站地址通常是 `https://vmoonaurav.github.io/backup-04/`。本地开发可在仓库根目录运行：
+1. 安装 [Git for Windows](https://git-scm.com/download/win) 和 [Python 3](https://www.python.org/downloads/windows/)（安装 Python 时勾选 Add Python to PATH）。
+2. 双击仓库根目录的 `Start-GRE-Context-Lab.bat`。
+3. 如果你是从 GitHub 的 **Download ZIP** 进入，启动器会在 `%LOCALAPPDATA%\\GRE-Context-Lab\\backup-04` 自动克隆一份带 Git 历史的工作副本；如果你已经 `git clone` 了仓库，则直接启动当前副本。
+4. 启动器会打开浏览器并运行本地服务。保持服务窗口打开即可学习；关闭窗口会停止服务。
+5. 在「学习记录」中使用 **同步到 GitHub** 或 **从 GitHub 恢复**。首次推送时，Git 可能要求你完成 Git Credential Manager 登录；必须拥有该仓库写入权限。
+
+启动器通过 `tools/desktop_app.py` 在 `127.0.0.1:8765` 运行本地服务。GitHub 凭据只由本机 Git 使用，不会传给网页。该本地 API 只接受本地网页发起的请求。
+
+## 手动运行网站
+
+首次发布成功后，网站地址通常是 `https://vmoonaurav.github.io/backup-04/`。如需手动预览，可在仓库根目录运行：
 
 ```bash
 python -m http.server 8000 --directory docs
 ```
 
-然后打开 `http://localhost:8000/`。浏览器需要通过 HTTP/HTTPS 才能正常使用 Service Worker 和 PWA 缓存。
+然后打开 `http://localhost:8000/`。这种简易静态服务器仅适合学习与预览；GitHub 自动同步按钮需要使用 `Start-GRE-Context-Lab.bat` 启动的本地服务。
 
 ## 电脑端学习记录同步
 
