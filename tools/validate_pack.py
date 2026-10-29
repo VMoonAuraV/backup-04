@@ -18,8 +18,18 @@ def main():
     if len(set(word_ids)) != len(word_ids): fail("word IDs must be unique")
     word_id_set = set(word_ids)
     for i, word in enumerate(data["words"], 1):
-        for key in ("word", "zh", "definition", "example", "nuance", "group"):
+        for key in ("word", "zh", "definition", "nuance", "group"):
             if not isinstance(word.get(key), str) or not word[key].strip(): fail(f"word #{i} ({word.get('id')}) is missing {key}")
+        examples = word.get("examples")
+        if not (isinstance(word.get("example"), str) and word["example"].strip()) and not (isinstance(examples, list) and examples):
+            fail(f"word #{i} ({word.get('id')}) needs example or non-empty examples")
+        if examples is not None:
+            if not isinstance(examples, list): fail(f"word #{i} ({word.get('id')}) examples must be an array")
+            for j, example in enumerate(examples, 1):
+                if isinstance(example, str):
+                    if not example.strip(): fail(f"word #{i} example #{j} is empty")
+                elif not isinstance(example, dict) or not isinstance(example.get("text"), str) or not example["text"].strip():
+                    fail(f"word #{i} example #{j} must be a non-empty string or an object with text")
     for key in ("comparisons", "se"):
         ids = [q.get("id") for q in data[key]]
         if any(not isinstance(x, str) or not x for x in ids) or len(set(ids)) != len(ids): fail(f"{key} IDs must be non-empty and unique")
