@@ -3,3 +3,6 @@ context-lab-backup-*.json
 context-lab-progress-*.json
 __pycache__/
 *.py[cod]
+
+# Local-only adapter for the personal LLM; never commit this file.
+docs/local-example-provider.local.js
