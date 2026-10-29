@@ -32,7 +32,7 @@ rem If launched from a ZIP download, clone a Git working copy so syncing can wor
 if not exist "%~dp0.git" (
   if exist "%TARGET%\.git" (
     call "%TARGET%\Start-GRE-Context-Lab.bat"
-    exit /b %errorlevel%
+    exit /b
   )
   if exist "%TARGET%" (
     echo [ERROR] The target folder exists but is not a Git repository:
@@ -51,7 +51,7 @@ if not exist "%~dp0.git" (
     exit /b 1
   )
   call "%TARGET%\Start-GRE-Context-Lab.bat"
-  exit /b %errorlevel%
+  exit /b
 )
 
 cd /d "%~dp0"
