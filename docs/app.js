@@ -31,7 +31,7 @@
   function contextOptions(word){const pool=pack.words.filter(w=>w.id!==word.id).sort((a,b)=>Number(b.group===word.group)-Number(a.group===word.group)),opts=[word,...pool.slice(0,3)];for(let i=opts.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[opts[i],opts[j]]=[opts[j],opts[i]];}return opts;}
   function highlight(sentence,word){return esc(sentence).replace(new RegExp(`\\b(${word.word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})\\b`,'gi'),'<mark>$1</mark>');}
   function wordExamples(word){
-    const core=Array.isArray(word.examples)?word.examples.map(function(x,i){return typeof x==='string'?{id:word.id+'-core-'+(i+1),text:x,kind:'core',source:'curated',status:'approved'}:x;}).filter(function(x){return x&&typeof x.text==='string'&&x.text.trim();}):(word.example?[{id:word.id+'-legacy',text:word.example,kind:'core',note:'核心例句',source:'curated',status:'approved'}]:[]);
+    const core=Array.isArray(word.examples)&&word.examples.length?word.examples.map(function(x,i){return typeof x==='string'?{id:word.id+'-core-'+(i+1),text:x,kind:'core',source:'curated',status:'approved'}:x;}).filter(function(x){return x&&typeof x.text==='string'&&x.text.trim();}):(word.example?[{id:word.id+'-legacy',text:word.example,kind:'core',note:'核心例句',source:'curated',status:'approved'}]:[]);
     const extra=Array.isArray(localExamples[word.id])?localExamples[word.id]:[],seen=new Set();
     return core.concat(extra).filter(function(x){const key=String(x.text||'').trim().toLowerCase();if(!key||seen.has(key))return false;seen.add(key);return true;});
   }
