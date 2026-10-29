@@ -20,7 +20,7 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 HOST = "127.0.0.1"
-PORT = 8765
+PORT = 8766
 ORIGINS = {f"http://{HOST}:{PORT}", f"http://localhost:{PORT}"}
 
 
